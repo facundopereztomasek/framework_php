@@ -1,0 +1,9 @@
+<?php
+	$database_conf = array(
+		'db_name' => 'framework_db',
+		'db_host' => 'localhost',
+		'db_user' => 'root',
+		'db_pass' => '',
+
+	)
+?>
