@@ -1,4 +1,29 @@
 <?php
+	/*
+	La pseudo clase Route: Toma la url entregada luego de la conversion a
+	traves del modulo rewrite y la parsea, definiendo que controlador es necesario
+	para que ruta. Ademas parsea los parametros entregados por url. Los parametros
+	son asignados a indices del array param_array, indices que son definidos en
+	la misma llamada a routes mediante llaves '{}'.
+
+	Ej.:
+
+	Route( 'get' , 'config/{option}/{value}/{item}' , 'Config@index' );
+
+	La ruta es 'config', la cual esta asociada al controlador Config, llamando
+	al metodo index.
+
+	Luego los valores de parametros /1/2/3 son guardados en los indices 'option',
+	'value' e 'item' del array param_array.
+
+	Esto es definido por el usuario, premitiendo una facil asociacion de parametros
+	con variables que luego son utilizadas en la vista.
+
+	Finalmente se delegan los datos parseados a la pseudo clase Controller que se
+	encarga de servir la peticion requerida vinculando un posible modelo con una
+	vista.
+	*/
+
 	function Route( $request_method , $url , $controller ){
 
 		if( $_SERVER['REQUEST_METHOD'] != strtoupper( $request_method ) ) return;
@@ -43,12 +68,14 @@
 		$route_name = $route_tokens[0];
 		$url_name = $url_tokens[0];
 
-		$url_variables = array();
-
 		$pattern = '/^\{([a-z]*)\}$/';
-		$cadena = '{hoho}';
 
 		$params = explode( '/' , $params );
+
+		// echo "<pre>";
+		// print_r($params);
+		// echo "</pre>";
+		// echo '<br>';
 
 		$param_index = 0;
 
@@ -72,7 +99,7 @@
 
 		$controller_name = explode( "@" , $controller )[0];
 		$controller_method = explode( "@" , $controller )[1];
-		
+
 		Controller( $controller_name , $controller_method , $param_array );
 	}
 ?>

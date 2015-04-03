@@ -1,4 +1,5 @@
 <?php
+	// Configuraciones de la conexion a la base de datos
 	$database_conf = array(
 		'db_name' => 'framework_db',
 		'db_host' => 'localhost',

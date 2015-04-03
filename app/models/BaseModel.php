@@ -1,4 +1,7 @@
 <?php
+	// Modelo base que contiene todos los metodos necesarios para la interaccion
+	// con la base de datos
+	
 	$BaseModel = array(
 		'table' => '',
 		'model' => ($model = 'BaseModel'),

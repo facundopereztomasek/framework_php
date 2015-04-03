@@ -1,4 +1,10 @@
 <?php
+
+	/*
+	La pseudo clase View:
+	Se encarga de levantar un documento con formato html, pasandole como parametros
+	los datos necesarios para esa seccion.
+	*/
 	function View( $view_name , $params ){
 
 		if( is_array( $params ) ){

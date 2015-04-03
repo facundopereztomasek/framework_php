@@ -1,4 +1,7 @@
 <?php
+	// La pseudo clase DB:
+	// Es la interfaz a traves de la cual se establece comunicacion con la base de
+	// datos
 
 	$DB = array(
 		"raw" => function( $query ){
