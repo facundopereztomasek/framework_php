@@ -9,21 +9,26 @@
 	<?php print_r( mysqli_real_escape_string($DB["connection"],  $myOptions  )); ?>
 	<?php print_r( mysqli_real_escape_string($DB["connection"],  $myValue  )); ?>
 	<?php print_r( mysqli_real_escape_string($DB["connection"],  $myItem  )); ?>
-	
+
 	<?php
 	foreach( $myUsers as $user ){
 	?>
 
-		<div>Usuario: <strong><?php print_r( $user['name'] ) ?></strong></div>
-		<div>Usuario: <strong><?php print_r( mysqli_real_escape_string($DB["connection"],  $user['name']  )); ?></strong></div>
+		<div>Usuario: <strong><?php print_r( $user['user'] ) ?></strong></div>
+		<div>Usuario: <strong><?php print_r( mysqli_real_escape_string($DB["connection"],  $user['user']  )); ?></strong></div>
 
-		<form action="form_post" method="post">			<input type="text" name="nombre" value="d" />
-			<textarea col="10" row="10" >texto</textarea>
+		<form action="form_post"  class="pendorcho"  >			<input type="text" name="nombre" value="s"  class="miTexto"  />
+			<textarea name="texto" rows="8" cols="40"></textarea>
+			<textarea name="texto" rows="8" cols="40">este es mi mensaje</textarea>
+			<textarea name="texto" rows="8" cols="40"  class="caja"  >este es mi mensaje</textarea>
+			<label for="check" ></label>
 			<label for="check" >Elige la opcion</label>
-			<input type="checkbox" name="check" value="1" />
-			<input type="password" name="pass" value="unpassword" />
+			<label for="check"  class="caja"  >Elige la opcion</label>
+			<input type="checkbox" name="check" value="1"  id="check"  />
+			<input type="submit" name="pass" />
+			<input type="submit" name="pass"  class="miTexto"  />
 			<input type="hidden" name="hid" value="algo" />
-			<input type="submit" value="Dale!" />
+			<input type="submit" name="Dale!" />
 		</form>
 	<?php
 	}

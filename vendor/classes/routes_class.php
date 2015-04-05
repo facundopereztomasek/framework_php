@@ -68,6 +68,8 @@
 		$route_name = $route_tokens[0];
 		$url_name = $url_tokens[0];
 
+		if( $route_name != $url_name ) return;
+
 		$pattern = '/^\{([a-z]*)\}$/';
 
 		$params = explode( '/' , $params );
@@ -81,10 +83,11 @@
 
 		$param_array = array();
 
+
 		foreach( $url_tokens as $variable ){
-
+			if($variable == ''){ continue; }
 			if(preg_match( $pattern , $variable)){
-
+			
 				$variable_name = preg_replace($pattern, '$1', $variable);
 
 				$param_array[$variable_name] = $params[$param_index];
@@ -95,7 +98,6 @@
 
 
 
-		if( $route_name != $url_name ) return;
 
 		$controller_name = explode( "@" , $controller )[0];
 		$controller_method = explode( "@" , $controller )[1];

@@ -11,7 +11,7 @@
 	Las vistas que finalmente se leen se encuentran en app/storage/views/ ya
 	compiladas.
 	*/
-	function View( $view_name , $params ){
+	function View( $view_name , $params = null ){
 
 		if( is_array( $params ) ){
 			foreach( $params as $key => $value ){

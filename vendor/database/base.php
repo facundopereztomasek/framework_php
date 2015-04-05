@@ -8,7 +8,7 @@
 			global $DB;
 
 			$DB['result'] = mysqli_query( $DB['connection'] , $query );
-
+			return $DB['result'];
 		},
 
 		"fetch" => function(){
