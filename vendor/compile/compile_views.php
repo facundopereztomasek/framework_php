@@ -215,12 +215,14 @@
 		$pattern = '/@form\(\s*[\'*\"*](.*)[\'*\"*]\s*\,\s*array\((.*)\)\s*\)\n*(.*)\n*@endform\(\)/s';
 
 		$view_pre_parsed = preg_replace_callback($pattern, function( $result ) {
+			global $RouteAliases;
+
 			$swap = $result[3];
 			$result[3] = $result[2];
 			$result[2] = $swap;
 			// parse_result convierte los arrays en formato texto a duplas de atributo=valor
 			$result = parse_result( $result );
-			return '<form action="' . $result[1] . '" ' . $result[3] . ' >'. $result[2] .'</form>';
+			return '<form method="POST" action="/' . $RouteAliases[ $result[1] ] . '" ' . $result[3] . ' >'. $result[2] .'</form>';
 		}, $view_pre_parsed);
 
 		// Token: @form( 'action' ) ... @endform() -- creacion de formularios

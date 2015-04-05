@@ -33,6 +33,8 @@
 
 		$statment = mysqli_query( $DB['connection'] , $query );
 
+		mysqli_query( $DB['connection'] , "DEALLOCATE PREPARE prepared_stmt;" );
+
 		return $statment;
 
 	};

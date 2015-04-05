@@ -23,5 +23,7 @@
 		// echo $content;
 
 		include('../app/storage/views/' . $view_name . '.php');
+
+		return true;
 	}
 ?>

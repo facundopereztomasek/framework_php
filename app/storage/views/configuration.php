@@ -17,7 +17,7 @@
 		<div>Usuario: <strong><?php print_r( $user['user'] ) ?></strong></div>
 		<div>Usuario: <strong><?php print_r( mysqli_real_escape_string($DB["connection"],  $user['user']  )); ?></strong></div>
 
-		<form action="form_post"  class="pendorcho"  >			<input type="text" name="nombre" value="s"  class="miTexto"  />
+		<form method="POST" action="/config"  class="pendorcho"  >			<input type="text" name="nombre" value="s"  class="miTexto"  />
 			<textarea name="texto" rows="8" cols="40"></textarea>
 			<textarea name="texto" rows="8" cols="40">este es mi mensaje</textarea>
 			<textarea name="texto" rows="8" cols="40"  class="caja"  >este es mi mensaje</textarea>
