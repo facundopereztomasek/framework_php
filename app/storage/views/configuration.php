@@ -14,8 +14,8 @@
 	foreach( $myUsers as $user ){
 	?>
 
-		<div>Usuario: <strong><?php print_r( $user['user'] ) ?></strong></div>
-		<div>Usuario: <strong><?php print_r( mysqli_real_escape_string($DB["connection"],  $user['user']  )); ?></strong></div>
+		<div>Usuario: <strong><?php print_r( $user ) ?></strong></div>
+		<div>Usuario: <strong><?php print_r( mysqli_real_escape_string($DB["connection"],  $user  )); ?></strong></div>
 
 		<form method="POST" action="/config"  class="pendorcho"  >			<input type="text" name="nombre" value="s"  class="miTexto"  />
 			<textarea name="texto" rows="8" cols="40"></textarea>

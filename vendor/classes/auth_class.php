@@ -12,6 +12,7 @@
 		global $DB;
 		global $Secure;
 		global $Usuarios;
+		global $Auth;
 
 		$password = sha1( $password );
 
@@ -31,6 +32,10 @@
 
 			$_SESSION['active_session'] = true;
 			$_SESSION['username'] = $logged_user['user'];
+
+			// Linea nueva++++++++++++++++++++
+			$Auth['username'] = $logged_user['user'];
+			// +++++++++++++++++++
 
 			return $logged_user;
 		}

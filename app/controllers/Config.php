@@ -21,12 +21,11 @@
 		// $users = $users['delete']();
 		// $users = $users['delete']();
 
-		$Auth['login']( 'Facundo' , '1234' );
+		$usr = $Auth['login']( 'Facundo' , '1234' );
 		// $Auth['logout']();
 		// $Auth['create']('Juancho2' , '1234');
 		// $Auth['remove']( 'Juancho2' , '1234' );
-
-		return View( 'configuration' , array('myOptions' => $myOptions , 'myValue' => $myValue , 'myItem' => $myItem , 'myUsers' => array($users)) );
+		return View( 'configuration' , array('myOptions' => $myOptions , 'myValue' => $myValue , 'myItem' => $myItem , 'myUsers' => array($Auth['username'])) );
 	}
 
 	function submitted( $params ){

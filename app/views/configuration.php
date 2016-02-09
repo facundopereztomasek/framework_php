@@ -14,8 +14,8 @@
 	foreach( $myUsers as $user ){
 	?>
 
-		<div>Usuario: <strong>{{ $user['user'] }}</strong></div>
-		<div>Usuario: <strong>{{{ $user['user'] }}}</strong></div>
+		<div>Usuario: <strong>{{ $user }}</strong></div>
+		<div>Usuario: <strong>{{{ $user }}}</strong></div>
 
 		@form( 'form_post' , array('class'=>'pendorcho'))
 			@text( 'nombre' , 's' , array('class'=>'miTexto') )
