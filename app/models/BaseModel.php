@@ -2,6 +2,7 @@
 	// Modelo base que contiene todos los metodos necesarios para la interaccion
 	// con la base de datos
 
+	// TODO: Problema con model, se pisan los modelos
 	$BaseModel = array(
 		'table' => '',
 		'model' => ($model = 'BaseModel'),

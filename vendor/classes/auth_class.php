@@ -20,7 +20,10 @@
 
 		$password = sha1( $password );
 
-		$Secure['prepare']("SELECT * FROM users WHERE user=? AND password=?;");
+		// TODO: el nombre de la tabla users debe ser siempre el mismo
+		// TODO: los campos user y password deben ser siempre los mismos
+		// $Secure['prepare']("SELECT * FROM users WHERE user=? AND password=?;");
+		$Secure['prepare']("SELECT * FROM usuarios WHERE email=? AND password=?;");
 		$result = $Secure['execute']( array(
 			mysqli_real_escape_string( $DB['connection'], $username ),
 			mysqli_real_escape_string( $DB['connection'], $password )

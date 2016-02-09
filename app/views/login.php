@@ -13,9 +13,9 @@
       <p>Please login</p>
       @form( 'loginDo' , array('class'=>''))
         @label( 'username' , 'Username' )
-        @text( 'username' , '' , array('class'=>'input-username col-sm-8', 'autofocus'=>'true') )
+        @text( 'username' , 'facundoperez@gmail.com' , array('class'=>'input-username col-sm-8', 'autofocus'=>'true') )
         @label( 'password' , 'Password' )
-        @text( 'password' , '' , array('class'=>'input-password col-sm-8') )
+        @text( 'password' , 'abbbb55g' , array('class'=>'input-password col-sm-8') )
         @submit( 'pass' , array('class'=>'input-submit col-sm-8') )
       @endform()
     </div>
