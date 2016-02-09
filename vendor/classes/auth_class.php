@@ -5,7 +5,9 @@
 	$Auth = array();
 
 	if(isset($_SESSION['active_session'])){
-		echo 'Logged: OK';
+		echo 'Logged: YES';
+	} else {
+		echo 'Logged: NO';
 	}
 
 	$Auth['login'] = function( $username, $password ){
