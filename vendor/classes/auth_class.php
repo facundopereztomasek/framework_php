@@ -4,6 +4,8 @@
 	// login, generando una sesion.
 	$Auth = array();
 
+
+	// TODO: Borrar estos avisos
 	if(isset($_SESSION['active_session'])){
 		echo 'Logged: YES';
 	} else {
@@ -23,6 +25,8 @@
 			mysqli_real_escape_string( $DB['connection'], $username ),
 			mysqli_real_escape_string( $DB['connection'], $password )
 		) );
+
+		// TODO: Borrar comentarios
 		// print_r($result);
 		// $result = $DB['raw']("SELECT * FROM users WHERE user='$username' AND password='$password';");
 
@@ -35,6 +39,7 @@
 			$_SESSION['active_session'] = true;
 			$_SESSION['username'] = $logged_user['user'];
 
+			// TODO: Comprobar línea
 			// Linea nueva++++++++++++++++++++
 			$Auth['username'] = $logged_user['user'];
 			// +++++++++++++++++++
@@ -52,6 +57,7 @@
 
 		session_destroy();
 
+		// TODO: Borrar echos
 		echo 'Te deslogueaste.';
 
 	};
@@ -68,6 +74,7 @@
 			mysqli_real_escape_string( $DB['connection'], $username )
 		) );
 
+		// TODO: Borrar comentarios
 		// $result = $DB['raw']("SELECT * FROM users WHERE user='$username';");
 
 		// Si el login es exitoso
@@ -81,6 +88,7 @@
 			mysqli_real_escape_string( $DB['connection'], $password )
 		) );
 
+		// TODO: Borrar comentarios
 		// $result = $DB['raw']("INSERT INTO users( user , password ) VALUES ( '$username' , '$password' );");
 
 		return true;
@@ -97,6 +105,7 @@
 			mysqli_real_escape_string( $DB['connection'], $password )
 		) );
 
+		// TODO: Borrar comentarios
 		// $result = $DB['raw']("SELECT * FROM users WHERE user='$username' AND password='$password';");
 
 		// Si el login es exitoso
@@ -107,6 +116,7 @@
 				mysqli_real_escape_string( $DB['connection'], $password )
 			) );
 
+			// TODO: Borrar comentarios
 			// $result = $DB['raw']("DELETE FROM users WHERE user='$username' AND password='$password';");
 			return true;
 		}

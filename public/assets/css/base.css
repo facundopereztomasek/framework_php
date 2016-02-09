@@ -1,0 +1,16 @@
+.form-container {
+  background-color: aliceblue;
+  padding:10px;
+}
+
+label {
+  display:block;
+}
+input {
+  display: inline-block;
+  margin-bottom:10px;
+}
+
+.input-submit {
+  margin: 10px 0;
+}
