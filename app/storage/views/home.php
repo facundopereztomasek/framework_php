@@ -5,8 +5,6 @@
 	<title>Home</title>
 </head>
 <body>
-	<p>Esta es la home.</p>
-
-
+	<p>Esta es la home del logueado.</p>
 </body>
 </html>

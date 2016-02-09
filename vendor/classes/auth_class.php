@@ -5,7 +5,7 @@
 	$Auth = array();
 
 	if(isset($_SESSION['active_session'])){
-		echo 'logueado desde antes <br>';
+		echo 'Logged: OK';
 	}
 
 	$Auth['login'] = function( $username, $password ){
@@ -41,7 +41,8 @@
 		}
 
 		// Si no existe el usuario o el password es incorrecto
-		echo 'Error, no logueado.';
+		// echo 'Error, no logueado.';
+		return false;
 
 	};
 

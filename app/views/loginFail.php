@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Home</title>
+	<title>Configuracion</title>
 </head>
 <body>
-	<p>Esta es la home del logueado.</p>
+	<p>Error, no logueado</p>
 </body>
 </html>
