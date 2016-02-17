@@ -44,16 +44,17 @@
 	function parseView( $view_stream ){
 
 		$view_pre_parsed = '<?php global $DB; ?>' . $view_stream;
-
+		// TODO: Cuando hay un array lo deja en blanco / tira una notificacion de php y rompe el html
 		// Token: {{{ ... }}} -- Impresion de contenido de variables y arrays con
 		// escape de caracteres especiales
-		$pattern = '/\{\{\{(.*)\}\}\}/';
+		$pattern = '/\{\{\{([^\{]*[^\{])\}\}\}/';
 		$view_pre_parsed = preg_replace($pattern, '<?php print_r( mysqli_real_escape_string($DB["connection"], $1 )); ?>', $view_pre_parsed);
 
-
 		// Token: {{ ... }} -- Impresion de contenido de variables y arrays
-		$pattern = '/\{\{(.*)\}\}/';
+		$pattern = '/\{\{([^\{]*[^\{])\}\}/';
+		echo $view_pre_parsed;
 		$view_pre_parsed = preg_replace($pattern, '<?php print_r(' . '$1' . ') ?>', $view_pre_parsed);
+		echo $view_pre_parsed;
 
 
 

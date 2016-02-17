@@ -6,14 +6,17 @@
 </head>
 <body>
 	<p>Crea tu lista.</p>
+  
   <?php 
   foreach($products as $product) {
-    echo '<pre>';
-    var_dump($product);
+    if($product['tipo']=="0") { continue; }
   ?>
-    
-  <?php 
-  echo '</pre>';
+  <div>
+    @label( 'product_{{$product["id"]}}' , '{{$product["nombre"]}}' , array('class'=>'clase') )
+    @checkbox( 'product_{{$product["id"]}}' , '{{$product["id"]}}' , array('id'=>'product_{{$product["id"]}}', 'class'=>'clase') )
+  </div>    
+  
+  <?php
   }
   ?>
 </body>

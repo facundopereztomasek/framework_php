@@ -6,11 +6,12 @@
 	$BaseModel = array(
 		'table' => '',
 		'model' => ($model = 'BaseModel'),
-		'get' => function( $param = 'all' ){
+		'get' => function( $param = 'all' ) use ($model){
 			global $DB;
 			global $Secure;
 			global $model;
 			global $$model;
+			echo $model;
 			$this_model = $$model;
 
 
@@ -22,6 +23,7 @@
 
 					$result = array();
 					while( $r = mysqli_fetch_assoc( $rows )){
+					// TODO: ojo con el []
 						$result[]=$r;
 					}
 					return $result;
