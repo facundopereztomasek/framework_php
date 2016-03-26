@@ -52,9 +52,7 @@
 
 		// Token: {{ ... }} -- Impresion de contenido de variables y arrays
 		$pattern = '/\{\{([^\{]*[^\{])\}\}/';
-		echo $view_pre_parsed;
 		$view_pre_parsed = preg_replace($pattern, '<?php print_r(' . '$1' . ') ?>', $view_pre_parsed);
-		echo $view_pre_parsed;
 
 
 
@@ -248,8 +246,11 @@
 		$attr_string = '';
 		foreach( $attr_array as $attr ){
 
-			$attr[0] = preg_replace( '/[\'\"]/' , '' , $attr[0]);
-			$attr[1] = preg_replace( '/[\'\"]/' , '' , $attr[1]);
+		//HAY QUE FESTEJAR!!! ESTE BUG CASI ME GANA
+		$attr[0] = preg_replace( '/^[\"](.*)[\"]$/' , "$1" , $attr[0]);
+		$attr[0] = preg_replace( '/^[\'](.*)[\']$/' , "$1" , $attr[0]);
+		$attr[1] = preg_replace( '/^[\"](.*)[\"]$/' , "$1" , $attr[1]);
+		$attr[1] = preg_replace( '/^[\'](.*)[\']$/' , "$1" , $attr[1]);
 
 			$attr_string .= ' ' . $attr[0] . '="' . $attr[1] . '" ';
 

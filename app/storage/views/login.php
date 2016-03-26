@@ -12,7 +12,7 @@
       <h1>Login</h1>
       <p>Please login</p>
       <form method="POST" action="/"  class=""  >        <label for="username" >Username</label>
-        <input type="text" name="username" value="facundoperez@gmail.com"  class="input-username col-sm-8"   autofocus="true"  />
+        <input type="text" name="username" value="facundoperez@gmail.com"  class="input-username col-sm-8"   'autofocus'="true"  />
         <label for="password" >Password</label>
         <input type="text" name="password" value="abbbb55g"  class="input-password col-sm-8"  />
         <input type="submit" name="pass"  class="input-submit col-sm-8"  />
