@@ -1,15 +1,13 @@
 <?php
   // Modelo base que contiene todos los metodos necesarios para la interaccion
   // con la base de datos
-
-  $Usuarios = array(
-    'table' => 'usuarios',
-    'model' => ($model = 'Usuarios'),
+  $ProductoEnLista = array(
+    'table' => 'productos_lista',
+    'model' => ($model = 'ProductoEnLista'),
     'get' => function( $param = 'all' ) use ($model){
       global $DB;
       global $Secure;
       global $$model;
-      echo $model;
       $this_model = $$model;
 
 
@@ -31,13 +29,12 @@
 
       }
     },
-    'new' => function( $id = null ){
+    'new' => function( $id = null ) use ($model){
       global $DB;
       global $Secure;
-      global $model;
       global $$model;
       $this_model = $$model;
-
+      
       $new_reg = array();
 
       if( $id ){

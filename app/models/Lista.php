@@ -2,14 +2,36 @@
   // Modelo base que contiene todos los metodos necesarios para la interaccion
   // con la base de datos
 
-  $Usuarios = array(
-    'table' => 'usuarios',
-    'model' => ($model = 'Usuarios'),
-    'get' => function( $param = 'all' ) use ($model){
+  $Prueba = array();
+  $Prueba['name'] = 'La Prueba';
+  $Prueba['new'] = function() {
+    global $Prueba;
+    $_prueba = array();
+    $_prueba['save'] = function() {
+      echo 'Guardado';
+    };
+    $_prueba['show'] = function() use (&$Prueba){
+      echo '<pre>';
+      var_dump($Prueba);
+      echo '</pre>';
+    };
+    return $_prueba;
+  };
+
+  $p = &$Prueba['new']();
+  $p['save']();
+  $p['name'] = 'carlitos';
+  $p['show']();
+  die();
+
+  $Lista = array();
+
+  $Lista['table'] = 'listas';
+  $Lista['model'] = ($model = 'Lista');
+  $Lista['get']   = function( $param = 'all' ) use ($model){
       global $DB;
       global $Secure;
       global $$model;
-      echo $model;
       $this_model = $$model;
 
 
@@ -30,18 +52,18 @@
         break;
 
       }
-    },
-    'new' => function( $id = null ){
+    };
+  $Lista['new']   = function( $id = null ) use ($model){
       global $DB;
       global $Secure;
-      global $model;
       global $$model;
+      global $Lista;
       $this_model = $$model;
-
-      $new_reg = array();
+      
+      
 
       if( $id ){
-        global $new_reg;
+        
         $Secure['prepare']("SELECT * FROM " . $this_model['table'] . " WHERE id=?");
 
         $rows = mysqli_fetch_assoc( $Secure['execute']( array($id) ));
@@ -56,7 +78,7 @@
         }
 
       }else{
-        global $new_reg;
+        
         $DB['raw']("SELECT * FROM " . $this_model['table'] . ";");
         $rows = $DB['fetch']();
 
@@ -66,13 +88,14 @@
 
       }
 
-      $new_reg['save'] = function(){
+      $new_reg['save'] = function() use ($Lista) {
         global $DB;
         global $Secure;
         global $model;
         global $$model;
-        global $new_reg;
+        
 
+        $new_reg = $Lista;
         $this_model = $$model;
 
         $values = array();
@@ -80,7 +103,12 @@
         $keys = "";
 
         $wildcard = "";
+        echo 'este';
+        var_dump($new_reg);
+        
         foreach( $new_reg as $key => $value ){
+          echo $key . ' -> ' . $value;
+          echo '<br>';
           if(is_object($value) || $key == 'id') continue;
           $sanitized_key = mysqli_real_escape_string( $DB['connection'] , $key);
           $keys .= $sanitized_key . ", ";
@@ -103,7 +131,6 @@
         global $Secure;
         global $model;
         global $$model;
-        global $new_reg;
 
         $this_model = $$model;
 
@@ -133,7 +160,7 @@
         global $Secure;
         global $model;
         global $$model;
-        global $new_reg;
+
 
         $this_model = $$model;
         $values = array( $new_reg['id'] );
@@ -144,7 +171,7 @@
       };
 
       $new_reg['set'] = function( $tupla ){
-        global $new_reg;
+
         foreach( $tupla as $key => $value ){
           $new_reg[ $key ] = $value;
         }
@@ -153,6 +180,5 @@
 
       return $new_reg;
 
-    }
-  );
+    };
 ?>

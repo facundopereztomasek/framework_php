@@ -8,7 +8,6 @@
       global $DB;
       global $Secure;
       global $$model;
-      echo $model;
       $this_model = $$model;
 
 
@@ -30,13 +29,12 @@
 
       }
     },
-    'new' => function( $id = null ){
+    'new' => function( $id = null ) use ($model){
       global $DB;
       global $Secure;
-      global $model;
       global $$model;
       $this_model = $$model;
-
+      
       $new_reg = array();
 
       if( $id ){
@@ -67,6 +65,7 @@
 
       $new_reg['save'] = function(){
         global $DB;
+        global $Secure;
         global $model;
         global $$model;
         global $new_reg;
