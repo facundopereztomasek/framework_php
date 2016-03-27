@@ -6,7 +6,8 @@
 	$Auth['session'](function(){
 		Route( 'get' , '/' , array( 'uses' => 'home@index') );
 		Route( 'get' , 'logout' , 'logout@index' );
-		Route( 'get' , 'crear-lista' , 'lista@index' );
+		Route( 'get' , 'crear-lista' , array('uses' => 'lista@index' , 'as' => 'crear-lista') );
+		Route( 'post' , 'guarda-lista' , array('uses' => 'lista@save' , 'as' => 'guarda-lista') );
 	});
 
 
