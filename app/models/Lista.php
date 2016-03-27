@@ -22,7 +22,7 @@
   $p['save']();
   $p['name'] = 'carlitos';
   $p['show']();
-  die();
+  
 
   $Lista = array();
 

@@ -1,14 +1,14 @@
 <?php
 	function index( $params ){
-    global $Producto;
-    $products = $Producto['get']();
+    $products = Model(array(
+      "method" => "get",
+      "table" => "productos"
+    ));
+    
     return View( 'nueva-lista' , array('products' => $products));
-	}
+  }
 
   function save( $params ){
-    global $Lista;
-    $lista = $Lista['new']();
-    
     if(isset($_POST)){
       $products = $_POST['products'];
       $novio = $_POST['novio'];
@@ -17,20 +17,30 @@
       $fecha = $_POST['fecha'];
     }
 
-    $lista["products"] = $products;
+    $lista = array();
     $lista["novio"] = $novio;
     $lista["novia"] = $novia;
     $lista["lugar"] = $lugar;
     $lista["fecha"] = $fecha;
     $lista["fk_usuarios"] = 18;
 
-    $lista["save"]();
+    $list_id = Model(array(
+      "method" => "save",
+      "table" => "listas",
+      "data" => $lista
+    ));
 
-
-    echo '<pre>';
-    var_dump($lista);
-    echo '</pre>';
-    
+    foreach ($products as $key => $value) {
+      echo $value;
+      Model(array(
+        "method" => "save",
+        "table" => "productos_lista",
+        "data" => array(
+          "fk_listas" => $list_id,
+          "fk_productos" => $value
+        )
+      ));      
+    }    
     
     return View( 'nueva-lista' , array('lista' => $lista));
   }

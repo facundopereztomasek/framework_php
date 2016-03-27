@@ -32,10 +32,12 @@
 		}
 
 		$statment = mysqli_query( $DB['connection'] , $query );
+		$last_id = mysqli_insert_id($DB['connection']);
 
 		mysqli_query( $DB['connection'] , "DEALLOCATE PREPARE prepared_stmt;" );
 
-		return $statment;
+		return $last_id;
 
 	};
+
 ?>
